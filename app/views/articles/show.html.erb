@@ -1,0 +1,14 @@
+<h1>Article Details Page</h1>
+
+<p><strong>Title:</strong> <%= @article.title %> </p>
+<p><strong>Description:</strong> <%= @article.description %> </p>
+
+<p>  
+  <%= link_to 'Return to home Page', root_path %> | 
+  <%= link_to 'Return to Article listing page', articles_path %> |
+  <%= link_to 'Edit', edit_article_path(@article) %> | 
+  <%= link_to 'Delete', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+</p>
+
+
+
