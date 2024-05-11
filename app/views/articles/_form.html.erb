@@ -1,23 +1,29 @@
-<% if @article.errors.any? %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= render "shared/errors" %>
+      <%= form_with(model: @article, class: "shadow p-4 mt-4 mb-5 bg-info rounded", local: true) do |f| %>
+        <div class="form-group row mb-4">
+          <%= f.label :title, class: "col-2 col-form-label" %>
+          <div class="col-10">
+            <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Title of Article"  %>
+          </div>
+        </div>
 
-  <h1>The following errors prevented the article from being saved</h1>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+        <div class="form-group row mb-4">
+          <%= f.label :description, class: "col-2 col-form-label" %>
+          <div class="col-10">
+            <%= f.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Description of Article"  %>
+          </div>
+        </div>
 
-<%= form_with(model: @article, local: true) do |f| %>
-  <p>
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br/>
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+        <div class="form-group justify-content-center">
+          <center>
+            <%= f.submit class: "btn btn-outline-light btn-lg" %>
+          </center>
+        </div>
+      <% end %>
+    </div>
+    <center><%= link_to '[ Return to Articles listing Page ]', articles_path %></center>
+  </div>
+</div>

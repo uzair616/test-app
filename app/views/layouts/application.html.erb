@@ -10,10 +10,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <% flash.each do |name, message| %>
-      <%= message %>
-    <% end %>
+  <body class="d-flex flex-column">
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/messages' %>
     <%= yield %>
   </body>
 </html>
